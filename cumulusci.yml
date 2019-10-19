@@ -1,0 +1,26 @@
+minimum_cumulusci_version: '3.0.0'
+project:
+    name: PKGTest
+    package:
+        name:  PKGTest
+        namespace: dmr_pkg_test1
+        api_version: '47.0'
+    dependencies:
+        - github: 'https://github.com/SalesforceFoundation/EDA'
+
+tasks:
+    robot:
+        options:
+            suites: robot/PKGTest/tests
+            options:
+                outputdir: robot/PKGTest/results
+
+    robot_testdoc:
+        options:
+            path: robot/PKGTest/tests
+            output: robot/PKGTest/doc/PKGTest_tests.html
+
+flows:
+    config_qa:
+        1.1:
+            task: deploy_qa_config
